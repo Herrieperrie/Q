@@ -1,0 +1,877 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+header#navbar {
+    background-color: #c4ece7; /* Lichte blauwe kleur */
+    color: #316891; /* Donkerblauwe kleur voor tekst */
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Veranderd naar center */
+    position: fixed; /* Zorgt ervoor dat de navbar altijd bovenaan blijft */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Zorgt ervoor dat de navbar boven andere elementen blijft */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    height: 50px;
+}
+
+header#navbar.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+header#navbar.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 20px; /* Padding left toegevoegd */
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    max-width: 150px;
+}
+
+.nav-container {
+    flex-grow: 1;
+    display: flex;
+    padding-left: 30px;
+    /*justify-content: center;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #005b96; /* Donkerblauwe kleur voor tekst */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Voeg een overgangsanimatie toe */
+}
+
+nav ul li a:hover {
+    color: #003366; /* Donkerdere blauwe kleur bij hover */
+    text-decoration: none; /* Verwijder de onderstreping */
+    text-shadow: 0 0 2px rgba(0, 91, 150, 0.3); /* Minder heftige blauwe gloed om de tekst */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #e8f7ff; /* Iets lichtere blauwe kleur */
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #00538a;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #b0e1ff; /* Nog lichtere blauwe kleur bij hover */
+}
+
+nav ul li:hover .dropdown-content {
+    display: block;
+}
+
+.language-switch {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.language-switch button {
+    background-color: #fff;
+    color: #005b96;
+    border: 1px solid #005b96;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.language-switch .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.language-switch .dropdown-content button {
+    color: #005b96;
+    padding: 5px 10px;
+    text-align: left;
+    border: none;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.language-switch .dropdown-content button:hover {
+    background-color: #ddd;
+}
+
+.language-switch:hover .dropdown-content {
+    display: block;
+}
+
+main {
+    padding: 20px;
+    padding-top: 0px;
+    text-align: center;
+}
+
+section {
+    margin-bottom: 100px;
+    text-align: center;
+    padding: 0 12%;
+}
+
+section h2 {
+    color: #005b96;
+    font-size: 1.6em;
+}
+
+section p {
+    margin: 0 auto;
+    max-width: 1500px;
+    padding: 0 10%;
+    text-align: left;
+    white-space: pre-line; /* Zorgt ervoor dat enters worden weergegeven */
+}
+
+.hero-image {
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+    padding-top: 5.8%;
+    overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hero-image img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    top: 40%;
+    right: 25%;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    padding-bottom: 65px;
+    text-align: center;
+    max-width: 500px;
+    overflow: visible; /* Ensure overflow is visible */
+    z-index: 1; /* Ensure it stays above other elements */
+}
+
+.hero-text h2 {
+    margin: 0;
+    color: #005b96;
+}
+
+.hero-text p {
+    margin: 10px 0 0;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.hero-text p:last-of-type {
+    position: relative;
+    top: 20px; /* Verplaats de laatste paragraaf iets naar beneden */
+}
+
+.content-container {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 80px; /* Padding-top toegevoegd */
+    flex-wrap: wrap;
+    min-height: 480px;
+}
+
+.content-container .text-container {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.content-container p, .content-container ul {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    line-height: 1.5;
+    padding-right: 10%;
+    text-align: left;
+}
+
+.content-container h2 {
+    margin: 0 0 15px 0;
+    color: #005b96;
+}
+
+.content-container img {
+    max-width: 40%; /* Afbeelding aan de rechterkant */
+    height: auto;
+    max-height: 500px;
+    padding-right: 10%;
+    object-fit: cover;
+}
+
+.content-container ul {
+    list-style-type: disc;
+    padding-left: 0; /* Remove default padding */
+    margin-left: 0; /* Remove default margin */
+}
+
+.content-container ul li {
+    margin-left: 11%; /* Indent list items to align with paragraph text */
+}
+
+.hometitel1 {
+    color: #005b96;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.narrow-content {
+    max-width: 700px; /* Iets smallere ruimte voor de inhoud */
+    margin: 0 auto;
+}
+
+.Vacatures {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 200px;
+}
+
+.services-content {
+    padding-top: 4%;
+}
+
+.narrow-content h2 {
+    font-size: 2em; /* Titel 1,5 keer zo groot */
+}
+
+.narrow-content p {
+    font-size: 1.2em; /* Inhoud 1,5 keer zo groot */
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-item {
+    position: relative;
+    width: 200px; /* Vierkante blokken */
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.service-item img {
+    width: 100%;
+    height: 200px; /* Vierkante plaatjes */
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.service-item:hover img {
+    transform: scale(1.2); /* Zoomt in op de afbeelding */
+}
+
+.service-text {
+    width: 200px;
+    text-align: center;
+    background-color: #e6f7ff; /* Lichte blauwe kleur */
+    color: #005b96; /* Donkerblauwe kleur voor tekst */
+    padding: 10px;
+    font-weight: bold;
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: relative;
+    top: -10px;
+}
+
+.service-text a {
+    color: #005b96;
+    text-decoration: none;
+}
+
+.service-text a:hover {
+    color: #003366; /* Donkerdere blauwe kleur bij hover */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    position: relative;
+    width: 100%;
+    overflow-x: hidden; /* Voorkomt zijwaartse scroll */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: start;
+    width: 100%;
+    max-width: 1200px; /* Beperkt de breedte van de container */
+    margin: 0 auto;
+}
+
+.nav-footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centreert de koptekst */
+}
+
+.nav-footer {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #9cd7ff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.nav-footer li {
+    margin-bottom: 10px;
+}
+
+.nav-footer a {
+    color: #9cd7ff;
+    text-decoration: none;
+}
+
+.nav-footer a:hover {
+    color: #7acaff;
+}
+
+.footer-info {
+    text-align: center;
+    grid-column: 2;
+}
+
+.footer-empty {
+    grid-column: 3;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer h3 {
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+/* Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+    overflow: hidden;
+    min-height: 250px;
+    padding-top: 10%;
+    box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.slideshow {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slideshow img {
+    width: 33.33%; /* Zorgt ervoor dat er drie afbeeldingen zichtbaar zijn */
+    flex-shrink: 0;
+    object-fit: cover; /* Zorgt ervoor dat de afbeeldingen de container vullen */
+    min-height: 250px;
+    min-width: 250px;
+}
+
+.slideshow-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 35%; /* Bedekt 35% van de hoogte van de afbeeldingen */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    z-index: 1; /* Zorgt ervoor dat de overlay boven de afbeeldingen ligt */
+    pointer-events: none; /* Zorgt ervoor dat de overlay geen interacties blokkeert */
+    opacity: 0; /* Begin met onzichtbare overlay */
+    transition: opacity 0.5s ease; /* Voeg overgangsanimatie toe */
+}
+
+.slideshow-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: center; /* Zorgt ervoor dat de tekst horizontaal gecentreerd is */
+    z-index: 2; /* Zorgt ervoor dat de tekst boven de overlay ligt */
+    opacity: 0; /* Begin met onzichtbare tekst */
+    transform: translateY(20px); /* Begin met tekst iets naar beneden */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Voeg overgangsanimatie toe */
+}
+
+.slideshow-container:hover .slideshow-overlay {
+    opacity: 1; /* Maak overlay zichtbaar bij hover */
+}
+
+.slideshow-container:hover .slideshow-text {
+    opacity: 1; /* Maak tekst zichtbaar bij hover */
+    transform: translateY(0); /* Verplaats tekst naar oorspronkelijke positie */
+}
+
+.home-banner {
+    padding-top: 5%;
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    height: 70vh; /* Of auto, of een andere gewenste hoogte */
+    object-fit: cover;
+    display: block;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    border: 0;
+}
+
+.home-banner-text {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    text-align: center;
+    color: #fff;
+    font-size: 2.8em;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.7), 0 1px 2px rgba(0,0,0,0.5);
+    z-index: 10;
+    pointer-events: none;
+    user-select: none;
+}
+.hometitel {
+    position: relative;
+}
+
+/* Bundeling Grid Sectie */
+.bundeling-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: center;
+    justify-items: center;
+    max-width: 1400px;
+    margin: 60px auto 100px auto;
+    /*padding: 0 5vw;*/
+}
+
+.bundeling-left,
+.bundeling-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.bundeling-square {
+    background: #4db2ac;
+    width: 32vw;
+    height: 50vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*box-shadow: 0 4px 24px rgba(0,0,0,0.07);*/
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.bundeling-amp {
+    position: absolute;
+    font-size: 14em;
+    color: #224864;
+    opacity: 0.6;
+    left: 50%;
+    top: 32%;
+    transform: translate(-50%, -50%);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+
+.bundeling-titles {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bundeling-title-main {
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    line-height: 1.2;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bundeling-subtitle {
+    color: #fff;
+    font-size: 2em;
+    font-weight: 400;
+    margin-top: 80px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.3;
+}
+
+.bundeling-right {
+    font-size: 1.15em;
+    color: #316891;
+    /*background: #f8f8f8;*/
+    /*border-radius: 5px;*/
+    /*padding: 36px 32px;*/
+    width: 30vw;
+    height: 50vh;
+    /*box-shadow: 0 2px 12px rgba(0,0,0,0.04);*/
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    white-space: pre-line;
+}
+
+.partnertxt{
+    font-size: 1.15em;
+    color: #316891;
+    /*background: #f8f8f8;*/
+    /*border-radius: 5px;*/
+    /*padding: 36px 32px;*/
+    width: 50vw;
+    height: 40vh;
+    /*box-shadow: 0 2px 12px rgba(0,0,0,0.04);*/
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    white-space: pre-line;
+}
+
+/*.contacttxt{
+    font-size: 1.15em;
+    color: #316891;
+    background: #f8f8f8;
+    border-radius: 5px;
+    padding: 36px 32px;
+    width: 50vw;
+    height: 20vh;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    white-space: pre-line;
+}
+*/
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px;
+    justify-items: center;
+    align-items: stretch;
+    width: 60%;
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+}
+
+.contacttxt{
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    font-size: 1.15em;
+    color: #316891;
+    width: 100%;
+    max-width: 450px;
+    min-width: 0px;
+    height: auto;
+    box-sizing: border-box;
+    white-space: pre-line;
+}
+
+.contacttxt2 {
+    font-family: 'Roboto', sans-serif;
+    text-align: right;
+    font-size: 1.15em;
+    color: #316891;
+    width: 100%;
+    max-width: 450px;
+    min-width: 0px;
+    height: auto;
+    box-sizing: border-box;
+}
+
+#Marc {
+    padding-top: 70px;
+}
+
+/* Overons grid gelijk aan bundeling-grid */
+.overons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    justify-items: center;
+    max-width: 1200px;
+    margin: 60px auto 100px auto;
+    padding: 0 5vw;
+}
+
+.overons-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 1.15em;
+    color: #316891;
+    border-radius: 5px;
+    padding: 36px 32px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    max-width: 600px;
+    min-width: 220px;
+    box-sizing: border-box;
+    white-space: pre-line;
+    display: block; /* <-- Zet flex uit, zodat alles onder elkaar komt */
+
+}
+
+.overons-left img {
+    width: 100%;
+    max-width: 370px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    background: #c4ece7;
+    padding: 16px;
+}
+
+.overons-right {
+    font-size: 1.15em;
+    color: #316891;
+    border-radius: 5px;
+    padding: 36px 32px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    max-width: 600px;
+    min-width: 220px;
+    box-sizing: border-box;
+    white-space: pre-line;
+    display: block; /* <-- Zet flex uit, zodat alles onder elkaar komt */
+}
+
+.overons-right img {
+    width: 100%;
+    max-width: 370px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    background: #c4ece7;
+    padding: 16px;
+}
+
+.marc-signature {
+    color: #316891;
+    font-style: italic;
+    margin-top: 24px;
+    font-size: 1em;
+    text-align: left;      /* Links uitlijnen binnen het tekstvak */
+    width: 100%;           /* Volledige breedte van het tekstvak */
+    padding-left: 0;       /* Geen extra padding links */
+    box-sizing: border-box;
+}
+
+/* Zet bij 60% of minder breedte de items onder elkaar */
+@media (max-width: 1200px) {
+    .overons-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .overons-left, .overons-right {
+        max-width: 370px;
+        width: 90vw;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .contacttxt,
+    .contacttxt2 {
+        max-width: 98vw;
+    }
+}
+
+@media (max-width: 1300px) {
+    .bundeling-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .bundeling-left, .bundeling-right {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+    .bundeling-square {
+        width: 90vw;
+        max-width: 370px;
+        height: 90vw;
+        max-height: 370px;
+    }
+}
+
+@media (max-width: 700px) {
+    .bundeling-square {
+        width: 98vw;
+        max-width: 340px;
+        height: 98vw;
+        max-height: 340px;
+    }
+    .bundeling-title-main {
+        font-size: 1em;
+    }
+    .bundeling-subtitle {
+        font-size: 0.95em;
+    }
+    .bundeling-right {
+        font-size: 1em;
+        padding: 18px 8px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section {
+        padding: 0 5%;
+    }
+
+    section p {
+        padding: 0 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 0 2%;
+    }
+
+    section p {
+        padding: 0 2%;
+    }
+}
+
+@media (max-width: 900px) {
+    #projects {
+        margin-bottom: 60px;
+        margin-top: 40px;
+        padding-bottom: 200px;
+    }
+    .partnertxt {
+        font-size: 1em;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column; /* Stapel de inhoud verticaal */
+        align-items: center; /* Centreer de inhoud */
+    }
+
+    .content-container p, .content-container ul {
+        padding-right: 10%; /* Verwijder de padding aan de rechterkant */
+        padding-bottom: 20px; /* Voeg padding aan de onderkant toe voor ruimte tussen tekst en afbeelding */
+    }
+
+    .content-container img {
+        max-width: 100%; /* Zorg ervoor dat de afbeelding de volledige breedte inneemt */
+    }
+}
+
+@media (max-width: 700px) {
+    .hero-image {
+        height: 80vh; /* Adjust height for smaller screens */
+    }
+}
+
+
+
+
+
+
+
